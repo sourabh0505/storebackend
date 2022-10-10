@@ -14,15 +14,6 @@ const productRoutes = require("./routes/product")
 const orderRoutes = require("./routes/order")
 const paymentRoutes = require("./routes/payementRotes")
 
-mongoose.connect(process.env.DATABASE,{
-    useNewUrlParser:true,
-    useUnifiedTopology:true,
-    useCreateIndex: true
-}).then(() => {
-    console.log("DB CONNECTED")
-}).catch(function(error){
-    console.log("Error Ocurred: ",error);
-})
 
 app.use(bodyParser.json());
 app.use(cookieParser())
@@ -40,7 +31,21 @@ app.use("/api",paymentRoutes);
 const port = process.env.PORT || 8000;
 
 
-//Starting a Server
-app.listen(port, () => {
-    console.log(`app is running at ${port}`);
-})
+const StartServer = async () => {
+    await mongoose.connect(process.env.DATABASE,{
+        useNewUrlParser:true,
+        useUnifiedTopology:true,
+        useCreateIndex: true
+    }).then(() => {
+        console.log("DB CONNECTED")
+    }).catch(function(error){
+        console.log("Error Ocurred: ",error);
+    })
+    
+    //Starting a Server
+    app.listen(port, () => {
+        console.log(`app is running at ${port}`);
+    })
+}
+
+StartServer();
