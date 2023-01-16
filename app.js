@@ -17,7 +17,7 @@ const paymentRoutes = require("./routes/payementRotes")
 
 app.use(bodyParser.json());
 app.use(cookieParser())
-app.use(cors())
+app.use(cors("https://e-dukaan1.netlify.app/"))
 
 //My Routes
 app.use("/api",authRoutes);
