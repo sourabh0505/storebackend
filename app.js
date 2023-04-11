@@ -19,14 +19,6 @@ app.use(bodyParser.json());
 app.use(cookieParser())
 app.use(cors())
 
-app.enableCors({
-    origin: true,
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
-    credentials: true,
-  });
-
-  app.options('*', cors());
-
 //My Routes
 console.log(process.env.SECRET);
 app.use("/api",authRoutes);
@@ -36,7 +28,7 @@ app.use("/api",productRoutes);
 app.use("/api",orderRoutes);
 app.use("/api",paymentRoutes);
 
-//Port
+//Port 
 const port = process.env.PORT || 5000;
 
 

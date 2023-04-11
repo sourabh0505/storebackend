@@ -4,8 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "heroku-postbuild":"npm install --prefix projfrontend",
-    "start": "node app.js"
+    "start": "npm i && node app.js"
   },
   "keywords": [],
   "author": "",
