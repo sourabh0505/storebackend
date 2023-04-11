@@ -17,9 +17,10 @@ const paymentRoutes = require("./routes/payementRotes")
 
 app.use(bodyParser.json());
 app.use(cookieParser())
-app.use(cors("https://e-dukaan1.netlify.app/"))
+app.use(cors())
 
 //My Routes
+console.log(process.env.SECRET);
 app.use("/api",authRoutes);
 app.use("/api",userRoutes);
 app.use("/api",categoryRoutes);
@@ -28,7 +29,7 @@ app.use("/api",orderRoutes);
 app.use("/api",paymentRoutes);
 
 //Port
-const port = process.env.PORT || 8000;
+const port = process.env.PORT || 5000;
 
 
 const StartServer = async () => {
