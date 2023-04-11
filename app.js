@@ -19,6 +19,14 @@ app.use(bodyParser.json());
 app.use(cookieParser())
 app.use(cors())
 
+app.enableCors({
+    origin: true,
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
+    credentials: true,
+  });
+
+  app.options('*', cors());
+
 //My Routes
 console.log(process.env.SECRET);
 app.use("/api",authRoutes);
